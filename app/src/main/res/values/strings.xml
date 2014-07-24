@@ -4,5 +4,8 @@
     <string name="app_name">GDG Quiz</string>
     <string name="home_message">Welcome</string>
     <string name="btn_jogar">Jogar</string>
+    <string name="title_activity_pergunta">PerguntaActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
