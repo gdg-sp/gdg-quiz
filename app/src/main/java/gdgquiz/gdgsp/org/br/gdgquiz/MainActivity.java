@@ -2,6 +2,7 @@ package gdgquiz.gdgsp.org.br.gdgquiz;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,17 +23,15 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         context = getApplicationContext();
 
-                btnPlay = (Button) findViewById(R.id.btnPllay);
+        btnPlay = (Button) findViewById(R.id.btnPllay);
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                Intent perguntaIntent = new Intent(context, PerguntaActivity.class);
 
-
-
-
-
+                startActivity(perguntaIntent);
 
 
             }
