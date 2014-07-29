@@ -1,10 +1,9 @@
-package gdgquiz.gdgsp.org.br.gdgquiz;
+package gdgquiz.gdgsp.org.br.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import gdgquiz.gdgsp.org.br.gdgquiz.R;
 
 public class PerguntaActivity extends Activity {
 
