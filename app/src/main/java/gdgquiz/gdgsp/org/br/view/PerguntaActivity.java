@@ -2,6 +2,7 @@ package gdgquiz.gdgsp.org.br.view;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import gdgquiz.gdgsp.org.br.domain.Questao;
 import gdgquiz.gdgsp.org.br.domain.Resposta;
 
 public class PerguntaActivity extends Activity {
+    private static final String TAG = PerguntaActivity.class.getSimpleName();
     private Questao questao;
     private TextView descricao;
     private Button buttonResponder;
@@ -31,6 +33,7 @@ public class PerguntaActivity extends Activity {
         setContentView(R.layout.activity_pergunta);
         // TODO para teste
         questao = new QuizBO(this).getAllQuestao().get(0);
+        Log.d(TAG, "Questão: " + questao.getId());
 
         buttonResponder = (Button) findViewById(R.id.buttonResponder);
         descricao = (TextView) findViewById(R.id.textViewDescricao);
@@ -57,6 +60,7 @@ public class PerguntaActivity extends Activity {
         buttonResponder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "buttonResponder.setOnClickListener - START");
                 String resultado = "Resposta errada";
                 for (Resposta tempResposta : questao.getRespostas()) {
                     if (tempResposta.isRespostaCerta() &&
@@ -66,7 +70,8 @@ public class PerguntaActivity extends Activity {
                     }
                 }
 
-                Toast.makeText(getBaseContext(), resultado,Toast.LENGTH_LONG);
+                Toast.makeText(getBaseContext(), resultado, Toast.LENGTH_LONG).show();
+                Log.d(TAG, "buttonResponder.setOnClickListener - FINISH");
             }
         });
     }

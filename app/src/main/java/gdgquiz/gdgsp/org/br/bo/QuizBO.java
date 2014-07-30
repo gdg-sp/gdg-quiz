@@ -1,6 +1,7 @@
 package gdgquiz.gdgsp.org.br.bo;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import gdgquiz.gdgsp.org.br.domain.Resposta;
  * Created by pveronezi on 29/07/14.
  */
 public class QuizBO {
+    private static final String TAG = QuizBO.class.getSimpleName();
     private Context context;
 
     public QuizBO(Context context) {
@@ -19,6 +21,7 @@ public class QuizBO {
     }
 
     public List<Questao> getAllQuestao(){
+        Log.d(TAG,"List<Questao> getAllQuestao - START");
         // TODO para testes, depois implementar busca no banco
         List<Questao> result = new ArrayList<Questao>();
         Questao tempQuestao;
@@ -26,8 +29,8 @@ public class QuizBO {
         for (int i = 0; i<10; i++ ){
             tempQuestao = new Questao();
             tempQuestao.setRespostas(new ArrayList<Resposta>());
-            for(int j = 0; j <5; i++){
-            tempResposta = new Resposta();
+            for(int j = 0; j <5; j++){
+                tempResposta = new Resposta();
                 tempResposta.setId(j);
                 tempResposta.setDescricao("Resposta " + i+j);
                 tempResposta.setRespostaCerta(j==0?true:false);
@@ -42,6 +45,7 @@ public class QuizBO {
             result.add(tempQuestao);
         }
 
+        Log.d(TAG,"List<Questao> getAllQuestao - FINISH");
         return result;
 
     }
