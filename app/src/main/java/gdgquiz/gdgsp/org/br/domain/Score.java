@@ -1,5 +1,6 @@
 package gdgquiz.gdgsp.org.br.domain;
 
+import android.graphics.Bitmap;
 import android.media.Image;
 
 import java.util.Date;
@@ -15,11 +16,10 @@ public class Score {
      */
     private long id;
 
-    // TODO verificar que tipo de imagem é essa
     /**
-     *
+     * TODO verificar a que essa imagem se refere
      */
-    private byte[] imagem;
+    private Bitmap imagem;
 
     /**
      * Nome com 3 letras que identifica o jogador
@@ -44,11 +44,11 @@ public class Score {
         this.id = id;
     }
 
-    public byte[] getImagem() {
+    public Bitmap getImagem() {
         return imagem;
     }
 
-    public void setImagem(byte[] imagem) {
+    public void setImagem(Bitmap imagem) {
         this.imagem = imagem;
     }
 

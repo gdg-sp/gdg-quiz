@@ -46,7 +46,7 @@ public class ListViewScoreAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup viewGroup) {
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.item_score, null);
+            view = inflater.inflate(R.layout.item_score, viewGroup, false);
 
             holder = new ViewHolder();
 
@@ -63,7 +63,7 @@ public class ListViewScoreAdapter extends BaseAdapter {
         tempScore = scoreList.get(position);
 
         // TODO verificar a imagem
-        // holder.imageView.setImageBitmap();
+        // holder.imageView.setImageBitmap(tempScore.getImagem());
 
         holder.nome.setText(tempScore.getNome());
         holder.tempo.setText(tempScore.getTempo() + " minutos");

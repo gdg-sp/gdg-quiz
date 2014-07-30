@@ -28,6 +28,7 @@ private Context context;
             tempScore.setNome("" + i + i + i);
             tempScore.setTempo(i * 2);
             tempScore.setVitoria(i%2 == 0? true:false);
+            // tempScore.setImagem();
 
             result.add(tempScore);
         }

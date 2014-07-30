@@ -6,8 +6,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import gdgquiz.gdgsp.org.br.domain.Questao;
-import gdgquiz.gdgsp.org.br.domain.Resposta;
+import gdgquiz.gdgsp.org.br.domain.Answer;
+import gdgquiz.gdgsp.org.br.domain.Question;
 
 /**
  * Created by pveronezi on 29/07/14.
@@ -20,32 +20,32 @@ public class QuizBO {
         this.context = context;
     }
 
-    public List<Questao> getAllQuestao(){
-        Log.d(TAG,"List<Questao> getAllQuestao - START");
+    public List<Question> getAllQuestao(){
+        Log.d(TAG,"List<Question> getAllQuestao - START");
         // TODO para testes, depois implementar busca no banco
-        List<Questao> result = new ArrayList<Questao>();
-        Questao tempQuestao;
-        Resposta tempResposta;
+        List<Question> result = new ArrayList<Question>();
+        Question tempQuestion;
+        Answer tempAnswer;
         for (int i = 0; i<10; i++ ){
-            tempQuestao = new Questao();
-            tempQuestao.setRespostas(new ArrayList<Resposta>());
+            tempQuestion = new Question();
+            tempQuestion.setAnswers(new ArrayList<Answer>());
             for(int j = 0; j <5; j++){
-                tempResposta = new Resposta();
-                tempResposta.setId(j);
-                tempResposta.setDescricao("Resposta " + i+j);
-                tempResposta.setRespostaCerta(j==0?true:false);
-                tempQuestao.getRespostas().add(tempResposta);
+                tempAnswer = new Answer();
+                tempAnswer.setId(j);
+                tempAnswer.setDescription("Answer " + i + j);
+                tempAnswer.setRightAnswer(j == 0 ? true : false);
+                tempQuestion.getAnswers().add(tempAnswer);
             }
 
-            tempQuestao.setId(i);
-            tempQuestao.setDescricao("PERGUNTA "+ i +" asdfa s s a e we q ead fadfas dfas das dsa s f asd fasd f a" +
+            tempQuestion.setId(i);
+            tempQuestion.setDescription("PERGUNTA " + i + " asdfa s s a e we q ead fadfas dfas das dsa s f asd fasd f a" +
                     "asdf asd asd fasdfasd fad fasdf as s asd fasd asdf s s s fa s f as  as dfasd]" +
                     "asdfasdja qjn e kje kjbkjb kljberklj kje kj ");
 
-            result.add(tempQuestao);
+            result.add(tempQuestion);
         }
 
-        Log.d(TAG,"List<Questao> getAllQuestao - FINISH");
+        Log.d(TAG,"List<Question> getAllQuestao - FINISH");
         return result;
 
     }

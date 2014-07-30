@@ -2,7 +2,6 @@ package gdgquiz.gdgsp.org.br.view;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,8 +11,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import gdgquiz.gdgsp.org.br.bo.ScoreBO;
@@ -51,7 +48,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                Intent perguntaIntent = new Intent(getBaseContext(), PerguntaActivity.class);
+                Intent perguntaIntent = new Intent(getBaseContext(), QuestionActivity.class);
 
                 startActivity(perguntaIntent);
 
