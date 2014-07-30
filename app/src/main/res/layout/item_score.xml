@@ -32,7 +32,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/textViewResultado"
+        android:id="@+id/textViewDescricao"
+        android:layout_marginRight="63dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -43,7 +44,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/textViewMinutos"
-        android:layout_below="@+id/textViewResultado"
-        android:layout_alignLeft="@+id/textViewResultado"
-        android:layout_alignStart="@+id/textViewResultado" />
+        android:layout_below="@+id/textViewDescricao"
+        android:layout_alignLeft="@+id/textViewDescricao"
+        android:layout_alignStart="@+id/textViewDescricao" />
 </RelativeLayout>

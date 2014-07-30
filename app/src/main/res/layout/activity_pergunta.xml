@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textViewResultado"
+        android:id="@+id/textViewDescricao"
         android:layout_below="@+id/textViewNome"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -36,40 +36,41 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/layoutx"
-        android:layout_below="@+id/textViewResultado"
+        android:layout_below="@+id/textViewDescricao"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
 
         <RadioGroup
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewResultado"
+            android:layout_below="@+id/textViewDescricao"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:id="@+id/radioGroupResposta">
 
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="New RadioButton"
-                android:id="@+id/radioButton" />
+                android:id="@+id/radioButtonResposta1" />
 
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="New RadioButton"
-                android:id="@+id/radioButton2" />
+                android:id="@+id/radioButtonResposta2" />
 
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="New RadioButton"
-                android:id="@+id/radioButton3" />
+                android:id="@+id/radioButtonResposta3" />
 
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="New RadioButton"
-                android:id="@+id/radioButton4" />
+                android:id="@+id/radioButtonResposta4" />
         </RadioGroup>
     </LinearLayout>
 
@@ -90,8 +91,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button" />
+            android:text="@string/responder"
+            android:id="@+id/buttonResponder" />
     </LinearLayout>
 
 </RelativeLayout>

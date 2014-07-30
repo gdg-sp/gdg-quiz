@@ -1,13 +1,11 @@
 package gdgquiz.gdgsp.org.br.view;
 
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import java.util.List;
@@ -54,7 +52,7 @@ public class ListViewScoreAdapter extends BaseAdapter {
 
             holder.imageView = (ImageView) view.findViewById(R.id.imageView);
             holder.nome = (TextView) view.findViewById(R.id.textViewNome);
-            holder.vitoria = (TextView) view.findViewById(R.id.textViewResultado);
+            holder.vitoria = (TextView) view.findViewById(R.id.textViewDescricao);
             holder.tempo = (TextView) view.findViewById(R.id.textViewMinutos);
 
             view.setTag(holder);
