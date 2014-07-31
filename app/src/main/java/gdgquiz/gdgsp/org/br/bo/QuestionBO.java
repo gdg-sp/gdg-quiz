@@ -10,18 +10,18 @@ import gdgquiz.gdgsp.org.br.domain.Answer;
 import gdgquiz.gdgsp.org.br.domain.Question;
 
 /**
- * Created by pveronezi on 29/07/14.
+ * Created by pveronezi on 31/07/14.
  */
-public class QuizBO {
-    private static final String TAG = QuizBO.class.getSimpleName();
+public class QuestionBO {
+    private static final String TAG = QuestionBO.class.getSimpleName();
     private Context context;
 
-    public QuizBO(Context context) {
+    public QuestionBO(Context context) {
         this.context = context;
     }
 
     public List<Question> getAllQuestao(){
-        Log.d(TAG,"List<Question> getAllQuestao - START");
+        Log.d(TAG, "List<Question> getAllQuestao - START");
         // TODO para testes, depois implementar busca no banco
         List<Question> result = new ArrayList<Question>();
         Question tempQuestion;

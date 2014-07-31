@@ -12,7 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import gdgquiz.gdgsp.org.br.bo.QuizBO;
+import gdgquiz.gdgsp.org.br.bo.GameBO;
 import gdgquiz.gdgsp.org.br.domain.Question;
 import gdgquiz.gdgsp.org.br.domain.Answer;
 
@@ -26,13 +26,14 @@ public class QuestionActivity extends Activity {
     private RadioButton radioResposta2;
     private RadioButton radioResposta3;
     private RadioButton radioResposta4;
+    private GameBO gameBO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pergunta);
-        // TODO para teste
-        question = new QuizBO(this).getAllQuestao().get(0);
+        gameBO = new GameBO(this);
+        question = gameBO.getNextQuestion();
         Log.d(TAG, "Questão: " + question.getId());
 
         buttonResponder = (Button) findViewById(R.id.buttonResponder);
@@ -44,37 +45,46 @@ public class QuestionActivity extends Activity {
         radioResposta3 = (RadioButton) findViewById(R.id.radioButtonResposta3);
         radioResposta4 = (RadioButton) findViewById(R.id.radioButtonResposta4);
 
-        descricao.setText(question.getDescription());
-        radioResposta1.setText(question.getAnswers().get(0).getDescription());
-        radioResposta1.setId((int) question.getAnswers().get(0).getId());
-
-        radioResposta2.setText(question.getAnswers().get(1).getDescription());
-        radioResposta2.setId((int) question.getAnswers().get(1).getId());
-
-        radioResposta3.setText(question.getAnswers().get(2).getDescription());
-        radioResposta3.setId((int) question.getAnswers().get(2).getId());
-
-        radioResposta4.setText(question.getAnswers().get(3).getDescription());
-        radioResposta4.setId((int) question.getAnswers().get(3).getId());
+        populateQuestion(question);
 
         buttonResponder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "buttonResponder.setOnClickListener - START");
-                String resultado = "Answer errada";
-                for (Answer tempAnswer : question.getAnswers()) {
-                    if (tempAnswer.isRightAnswer() &&
-                            (radioGroupRespostas.getCheckedRadioButtonId() == tempAnswer.getId())) {
-                        resultado = "Answer Certa";
-                        break;
+                String resultado = getString(R.string.resposta_errada);
+                if(gameBO.validateAnswer(question, radioGroupRespostas.getCheckedRadioButtonId())){
+                    resultado = getString(R.string.resposta_certa);
+                    if((question = gameBO.getNextQuestion()) != null){
+                        populateQuestion(question);
+
+                    }else{
+                        resultado = "Fim das questões";
                     }
                 }
 
-                Toast.makeText(getBaseContext(), resultado, Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), resultado, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "buttonResponder.setOnClickListener - FINISH");
             }
         });
     }
+
+    private void populateQuestion(Question q){
+
+        descricao.setText(q.getDescription());
+        radioResposta1.setText(q.getAnswers().get(0).getDescription());
+        radioResposta1.setId((int) q.getAnswers().get(0).getId());
+
+        radioResposta2.setText(q.getAnswers().get(1).getDescription());
+        radioResposta2.setId((int) q.getAnswers().get(1).getId());
+
+        radioResposta3.setText(q.getAnswers().get(2).getDescription());
+        radioResposta3.setId((int) q.getAnswers().get(2).getId());
+
+        radioResposta4.setText(q.getAnswers().get(3).getDescription());
+        radioResposta4.setId((int) q.getAnswers().get(3).getId());
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,4 +104,6 @@ public class QuestionActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
