@@ -4,6 +4,9 @@ android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
+    lintOptions{
+        abortOnError false
+    }
     defaultConfig {
         applicationId "gdgquiz.gdgsp.org.br.gdgquiz"
         minSdkVersion 14

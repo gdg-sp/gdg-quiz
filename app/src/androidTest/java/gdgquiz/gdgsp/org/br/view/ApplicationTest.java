@@ -1,4 +1,4 @@
-package gdgquiz.gdgsp.org.br.gdgquiz;
+package gdgquiz.gdgsp.org.br.view;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

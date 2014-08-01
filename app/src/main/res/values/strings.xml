@@ -7,5 +7,13 @@
     <string name="title_activity_pergunta">PerguntaActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="score">SCORE</string>
+    <string name="responder">Responder</string>
+    <string name="placeholder_aaa">AAA</string>
+    <string name="resposta_errada">Resposta errada</string>
+    <string name="resposta_certa">Resposta Certa</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="ver_score">Ver Score</string>
+    <string name="teste">result</string>
 
 </resources>
