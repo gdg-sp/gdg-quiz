@@ -1,6 +1,7 @@
 package gdgquiz.gdgsp.org.br.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -54,12 +55,19 @@ public class QuestionActivity extends Activity {
                 String resultado = getString(R.string.resposta_errada);
                 if(gameBO.validateAnswer(question, radioGroupRespostas.getCheckedRadioButtonId())){
                     resultado = getString(R.string.resposta_certa);
-                    if((question = gameBO.getNextQuestion()) != null){
+                    question = gameBO.getNextQuestion();
+                    if(question != null){
                         populateQuestion(question);
 
                     }else{
-                        resultado = "Fim das questões";
+                        Intent resultIntent = new Intent(getBaseContext(), ResultActivity.class);
+                        resultIntent.putExtra("result", true);
+                        startActivity(resultIntent);
                     }
+                }else{
+                    Intent resultIntent = new Intent(getBaseContext(), ResultActivity.class);
+                    resultIntent.putExtra("result", false);
+                    startActivity(resultIntent);
                 }
 
                 Toast.makeText(getBaseContext(), resultado, Toast.LENGTH_SHORT).show();
