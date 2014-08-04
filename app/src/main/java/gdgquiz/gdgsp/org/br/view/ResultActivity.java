@@ -1,27 +1,78 @@
 package gdgquiz.gdgsp.org.br.view;
 
 import android.app.Activity;
+import android.app.SearchManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import gdgquiz.gdgsp.org.br.bo.ScoreBO;
 import gdgquiz.gdgsp.org.br.domain.Score;
-import gdgquiz.gdgsp.org.br.view.R;
 
 public class ResultActivity extends Activity {
+    public static final String VICTORY = "victory";
+    public static final String COUNT = "count";
+
     private Score score;
     private TextView labelResult;
-    private static String RESULT = "result";
+    private TextView labelCount;
+    private EditText letter1;
+    private EditText letter2;
+    private EditText letter3;
+    private Button buttonFinish;
+    private ScoreBO scoreBO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         labelResult = (TextView) findViewById(R.id.textViewResult);
-        //boolean result = getIntent().getBooleanExtra("result");
-       //String title = result? "Parabéns": "Não foi dessa vez";
-       // labelResult.setText(title);
+        labelCount = (TextView) findViewById(R.id.textViewCount);
+        letter1 = (EditText) findViewById(R.id.inputLetter1);
+        letter2 = (EditText) findViewById(R.id.inputLetter2);
+        letter3 = (EditText) findViewById(R.id.inputLetter3);
+        buttonFinish = (Button) findViewById(R.id.buttonHome);
 
+
+        boolean victory = getIntent().getBooleanExtra(VICTORY, false);
+        int count = getIntent().getIntExtra(COUNT, 0);
+
+        score = new Score();
+        score.setVictory(victory);
+        score.setQtdQuestions(count);
+
+
+        String title = victory? "Parabéns": "Não foi dessa vez";
+        labelResult.setText(title);
+        labelCount.setText("Quantidade de acertos: " + count);
+        buttonFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                endGame();
+
+
+            }
+        });
+
+    }
+
+    private void endGame() {
+        String name = letter1.getText().toString() + letter2.getText().toString() + letter3.getText().toString();
+        score.setName(name);
+
+        scoreBO = new ScoreBO(this);
+        scoreBO.saveScore(score);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        endGame();
+        super.onBackPressed();
     }
 
 

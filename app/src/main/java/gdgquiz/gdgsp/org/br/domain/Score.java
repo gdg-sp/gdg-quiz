@@ -1,9 +1,6 @@
 package gdgquiz.gdgsp.org.br.domain;
 
 import android.graphics.Bitmap;
-import android.media.Image;
-
-import java.util.Date;
 
 /**
  * Classe que representa o Score do jogador
@@ -17,24 +14,32 @@ public class Score {
     private long id;
 
     /**
-     * TODO verificar a que essa imagem se refere
-     */
-    private Bitmap imagem;
-
-    /**
      * Nome com 3 letras que identifica o jogador
      */
-    private String nome;
+    private String name;
 
     /**
      * Se verdadeiro ele ganhou nesse quiz
      */
-    private boolean vitoria;
+    private boolean victory;
 
     /**
-     * Quanto tempo levou o quiz em minutos
+     * Quantidade de perguntas acertadas
      */
-    private int tempo;
+    private int qtdQuestions;
+
+    /**
+     * Quanto time levou o quiz em minutos
+     */
+    private int time;
+
+    public int getQtdQuestions() {
+        return qtdQuestions;
+    }
+
+    public void setQtdQuestions(int qtdQuestions) {
+        this.qtdQuestions = qtdQuestions;
+    }
 
     public long getId() {
         return id;
@@ -44,35 +49,27 @@ public class Score {
         this.id = id;
     }
 
-    public Bitmap getImagem() {
-        return imagem;
+    public String getName() {
+        return name;
     }
 
-    public void setImagem(Bitmap imagem) {
-        this.imagem = imagem;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNome() {
-        return nome;
+    public boolean isVictory() {
+        return victory;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setVictory(boolean victory) {
+        this.victory = victory;
     }
 
-    public boolean isVitoria() {
-        return vitoria;
+    public int getTime() {
+        return time;
     }
 
-    public void setVitoria(boolean vitoria) {
-        this.vitoria = vitoria;
-    }
-
-    public int getTempo() {
-        return tempo;
-    }
-
-    public void setTempo(int tempo) {
-        this.tempo = tempo;
+    public void setTime(int time) {
+        this.time = time;
     }
 }

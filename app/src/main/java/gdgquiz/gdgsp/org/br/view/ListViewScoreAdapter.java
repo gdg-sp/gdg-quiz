@@ -65,9 +65,9 @@ public class ListViewScoreAdapter extends BaseAdapter {
         // TODO verificar a imagem
         // holder.imageView.setImageBitmap(tempScore.getImagem());
 
-        holder.nome.setText(tempScore.getNome());
-        holder.tempo.setText(tempScore.getTempo() + " minutos");
-        holder.vitoria.setText(tempScore.isVitoria() ? "Vitoria em" : "Derrotado em");
+        holder.nome.setText(tempScore.getName());
+        holder.tempo.setText(tempScore.getTime() + " minutos");
+        holder.vitoria.setText(tempScore.isVictory() ? "Vitoria em" : "Derrotado em");
 
         return view;
     }
