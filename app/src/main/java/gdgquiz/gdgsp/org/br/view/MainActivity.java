@@ -50,6 +50,14 @@ public class MainActivity extends Activity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        scoreList = scoreBO.getAllScore();
+        listViewScoreAdapter.notifyDataSetChanged();
+
+    }
+
     public void showMessage(String message){
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         Log.w(TAG, message);

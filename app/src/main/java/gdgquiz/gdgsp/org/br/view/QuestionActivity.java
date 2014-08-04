@@ -78,6 +78,7 @@ public class QuestionActivity extends Activity {
         resultIntent.putExtra(ResultActivity.COUNT, pCount);
         resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(resultIntent);
+        finish();
     }
 
     private void populateQuestion(Question q){

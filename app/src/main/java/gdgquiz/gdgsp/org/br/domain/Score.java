@@ -41,6 +41,17 @@ public class Score {
         this.qtdQuestions = qtdQuestions;
     }
 
+    @Override
+    public String toString() {
+        return "Score{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", victory=" + victory +
+                ", qtdQuestions=" + qtdQuestions +
+                ", time=" + time +
+                '}';
+    }
+
     public long getId() {
         return id;
     }
@@ -72,4 +83,6 @@ public class Score {
     public void setTime(int time) {
         this.time = time;
     }
+
+
 }

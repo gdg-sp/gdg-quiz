@@ -3,6 +3,7 @@ package gdgquiz.gdgsp.org.br.view;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import gdgquiz.gdgsp.org.br.domain.Score;
 public class ResultActivity extends Activity {
     public static final String VICTORY = "victory";
     public static final String COUNT = "count";
+    private static final String TAG = ResultActivity.class.getSimpleName();
 
     private Score score;
     private TextView labelResult;
@@ -53,7 +55,7 @@ public class ResultActivity extends Activity {
             @Override
             public void onClick(View view) {
                 endGame();
-
+                finish();
 
             }
         });
@@ -66,6 +68,8 @@ public class ResultActivity extends Activity {
 
         scoreBO = new ScoreBO(this);
         scoreBO.saveScore(score);
+
+        Log.d(TAG, "endGame() - score: " + score);
 
     }
 
