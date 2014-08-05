@@ -1,7 +1,6 @@
-package gdgquiz.gdgsp.org.br.view;
+package br.org.gdgsp.gdgquiz.view;
 
 import android.app.Activity;
-import android.app.SearchManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,8 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import gdgquiz.gdgsp.org.br.bo.ScoreBO;
-import gdgquiz.gdgsp.org.br.domain.Score;
+import br.org.gdgsp.gdgquiz.bo.ScoreBO;
+import br.org.gdgsp.gdgquiz.domain.Score;
 
 public class ResultActivity extends Activity {
     public static final String VICTORY = "victory";

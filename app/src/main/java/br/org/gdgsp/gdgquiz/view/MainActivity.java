@@ -1,4 +1,4 @@
-package gdgquiz.gdgsp.org.br.view;
+package br.org.gdgsp.gdgquiz.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import gdgquiz.gdgsp.org.br.bo.ScoreBO;
-import gdgquiz.gdgsp.org.br.domain.Score;
+import br.org.gdgsp.gdgquiz.bo.ScoreBO;
+import br.org.gdgsp.gdgquiz.domain.Score;
 
 
 public class MainActivity extends Activity {

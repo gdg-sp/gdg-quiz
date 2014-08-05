@@ -1,11 +1,11 @@
-package gdgquiz.gdgsp.org.br.bo;
+package br.org.gdgsp.gdgquiz.bo;
 
 import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import gdgquiz.gdgsp.org.br.domain.Score;
+import br.org.gdgsp.gdgquiz.domain.Score;
 
 /**
  * Created by pveronezi on 29/07/14.

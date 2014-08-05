@@ -1,4 +1,4 @@
-package gdgquiz.gdgsp.org.br.view;
+package br.org.gdgsp.gdgquiz.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import gdgquiz.gdgsp.org.br.domain.Score;
+import br.org.gdgsp.gdgquiz.domain.Score;
 
 /**
  * Created by pveronezi on 27/07/14.

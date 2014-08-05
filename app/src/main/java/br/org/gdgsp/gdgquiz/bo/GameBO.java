@@ -1,14 +1,11 @@
-package gdgquiz.gdgsp.org.br.bo;
+package br.org.gdgsp.gdgquiz.bo;
 
 import android.content.Context;
-import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
-import gdgquiz.gdgsp.org.br.domain.Answer;
-import gdgquiz.gdgsp.org.br.domain.Question;
+import br.org.gdgsp.gdgquiz.domain.Answer;
+import br.org.gdgsp.gdgquiz.domain.Question;
 
 /**
  * Created by pveronezi on 29/07/14.

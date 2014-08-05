@@ -1,14 +1,12 @@
-package gdgquiz.gdgsp.org.br.domain;
-
-import java.util.List;
+package br.org.gdgsp.gdgquiz.domain;
 
 /**
  * Created by pveronezi on 29/07/14.
  */
-public class Question {
+public class Answer {
     private long id;
     private String description;
-    private List<Answer> answers;
+    private boolean rightAnswer;
 
     public long getId() {
         return id;
@@ -26,11 +24,11 @@ public class Question {
         this.description = description;
     }
 
-    public List<Answer> getAnswers() {
-        return answers;
+    public boolean isRightAnswer() {
+        return rightAnswer;
     }
 
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
+    public void setRightAnswer(boolean rightAnswer) {
+        this.rightAnswer = rightAnswer;
     }
 }

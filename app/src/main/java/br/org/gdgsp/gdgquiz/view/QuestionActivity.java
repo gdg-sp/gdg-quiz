@@ -1,4 +1,4 @@
-package gdgquiz.gdgsp.org.br.view;
+package br.org.gdgsp.gdgquiz.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,8 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import gdgquiz.gdgsp.org.br.bo.GameBO;
-import gdgquiz.gdgsp.org.br.domain.Question;
+import br.org.gdgsp.gdgquiz.bo.GameBO;
+import br.org.gdgsp.gdgquiz.domain.Question;
 
 public class QuestionActivity extends Activity {
     private static final String TAG = QuestionActivity.class.getSimpleName();
@@ -53,17 +53,17 @@ public class QuestionActivity extends Activity {
             public void onClick(View view) {
                 Log.d(TAG, "buttonResponder.setOnClickListener - START");
 
-                if(gameBO.validateAnswer(question, radioGroupRespostas.getCheckedRadioButtonId())){
+                if (gameBO.validateAnswer(question, radioGroupRespostas.getCheckedRadioButtonId())) {
                     question = gameBO.getNextQuestion();
                     count++;
-                    if(question != null){
+                    if (question != null) {
                         Toast.makeText(getBaseContext(), getString(R.string.resposta_certa), Toast.LENGTH_SHORT).show();
                         populateQuestion(question);
 
-                    }else{
+                    } else {
                         resultGame(true, count);
                     }
-                }else{
+                } else {
                     resultGame(false, count);
                 }
 

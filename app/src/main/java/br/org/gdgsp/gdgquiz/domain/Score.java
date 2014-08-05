@@ -1,6 +1,4 @@
-package gdgquiz.gdgsp.org.br.domain;
-
-import android.graphics.Bitmap;
+package br.org.gdgsp.gdgquiz.domain;
 
 /**
  * Classe que representa o Score do jogador
