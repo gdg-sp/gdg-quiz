@@ -27,7 +27,7 @@ public class Score {
     private int qtdQuestions;
 
     /**
-     * Quanto time levou o quiz em minutos
+     * Quanto tempo levou o quiz em minutos
      */
     private int time;
 

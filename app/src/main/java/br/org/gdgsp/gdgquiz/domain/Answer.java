@@ -1,11 +1,24 @@
 package br.org.gdgsp.gdgquiz.domain;
 
 /**
+ * Representa uma possivel resposta de uma questão.
+ *
  * Created by pveronezi on 29/07/14.
  */
 public class Answer {
+    /**
+     * Id da Resposta
+     */
     private long id;
+
+    /**
+     * Descreve a resposta
+     */
     private String description;
+
+    /**
+     * Se é a resposta certa.
+     */
     private boolean rightAnswer;
 
     public long getId() {
