@@ -57,6 +57,6 @@
         android:id="@+id/buttonHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ver_score"/>
+        android:text="@string/see_score"/>
 
 </LinearLayout>

@@ -47,9 +47,9 @@ public class ResultActivity extends Activity {
         score.setQtdQuestions(count);
 
 
-        String title = victory? "Parabéns": "Não foi dessa vez";
+        String title = victory? getString(R.string.congratulations): getString(R.string.was_not_this_time);
         labelResult.setText(title);
-        labelCount.setText("Quantidade de acertos: " + count);
+        labelCount.setText(getString(R.string.hits) + count);
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

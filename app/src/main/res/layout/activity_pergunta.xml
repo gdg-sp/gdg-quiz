@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Pergunta"
-        android:id="@+id/textViewNome"
+        android:id="@+id/textViewName"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -22,8 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textViewDescricao"
-        android:layout_below="@+id/textViewNome"
+        android:id="@+id/textViewDescription"
+        android:layout_below="@+id/textViewName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -36,14 +36,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/layoutx"
-        android:layout_below="@+id/textViewDescricao"
+        android:layout_below="@+id/textViewDescription"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
 
         <RadioGroup
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewDescricao"
+            android:layout_below="@+id/textViewDescription"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:id="@+id/radioGroupResposta">
@@ -91,7 +91,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/responder"
+            android:text="@string/answer"
             android:id="@+id/buttonResponder" />
     </LinearLayout>
 

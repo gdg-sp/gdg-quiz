@@ -38,7 +38,7 @@ public class QuestionActivity extends Activity {
         Log.d(TAG, "Questão: " + question.getId());
 
         buttonResponder = (Button) findViewById(R.id.buttonResponder);
-        descricao = (TextView) findViewById(R.id.textViewDescricao);
+        descricao = (TextView) findViewById(R.id.textViewDescription);
 
         radioGroupRespostas = (RadioGroup) findViewById(R.id.radioGroupResposta);
         radioResposta1 = (RadioButton) findViewById(R.id.radioButtonResposta1);
@@ -57,7 +57,7 @@ public class QuestionActivity extends Activity {
                     question = gameBO.getNextQuestion();
                     count++;
                     if (question != null) {
-                        Toast.makeText(getBaseContext(), getString(R.string.resposta_certa), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), getString(R.string.right_answer), Toast.LENGTH_SHORT).show();
                         populateQuestion(question);
 
                     } else {
