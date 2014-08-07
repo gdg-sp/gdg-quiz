@@ -1,6 +1,8 @@
 package br.org.gdgsp.gdgquiz.view;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 import br.org.gdgsp.gdgquiz.bo.ScoreBO;
 import br.org.gdgsp.gdgquiz.domain.Score;
+import ly.count.android.api.Countly;
 
 public class ResultActivity extends Activity {
     public static final String VICTORY = "victory";
@@ -31,6 +34,10 @@ public class ResultActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        // Inicia o count.ly
+        Countly.sharedInstance().init(this, "https://cloud.count.ly", "6c5155943353eebcb773a3d1352eb17b02641240");
+
         labelResult = (TextView) findViewById(R.id.textViewResult);
         labelCount = (TextView) findViewById(R.id.textViewCount);
         letter1 = (EditText) findViewById(R.id.inputLetter1);
@@ -65,6 +72,13 @@ public class ResultActivity extends Activity {
         String name = letter1.getText().toString() + letter2.getText().toString() + letter3.getText().toString();
         score.setName(name);
 
+        // Informa o count.ly
+        if(score.isVictory()){
+            Countly.sharedInstance().recordEvent("Victory", 1);
+        } else{
+            Countly.sharedInstance().recordEvent("Defeated", 1);
+        }
+
         scoreBO = new ScoreBO(this);
         scoreBO.saveScore(score);
 
@@ -72,6 +86,21 @@ public class ResultActivity extends Activity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Inicia o count.ly
+        Countly.sharedInstance().onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        // para o count.ly
+        Countly.sharedInstance().onStop();
+        super.onStop();
+    }
+
+    @TargetApi(Build.VERSION_CODES.ECLAIR)
     @Override
     public void onBackPressed() {
         endGame();

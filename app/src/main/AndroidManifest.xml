@@ -2,11 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.org.gdgsp.gdgquiz.view" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+
         <activity
             android:name="br.org.gdgsp.gdgquiz.view.MainActivity"
             android:label="@string/app_name" >
@@ -24,6 +28,11 @@
             android:name="br.org.gdgsp.gdgquiz.view.ResultActivity"
             android:label="@string/title_activity_result" >
         </activity>
+        <service android:name="org.OpenUDID.OpenUDID_service">
+            <intent-filter>
+                <action android:name="org.OpenUDID.GETUDID" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
