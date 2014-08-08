@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string name="app_name">GDG Quiz</string>
+<string name="home_message">Bem vindo</string>
+<string name="btn_play">Jogar</string>
+<string name="title_activity_pergunta">Questões</string>
+<string name="action_settings">Preferências</string>
+<string name="score">SCORE</string>
+<string name="answer">Responder</string>
+<string name="wrong_answer">Resposta errada</string>
+<string name="right_answer">Resposta certa</string>
+<string name="title_activity_result">Resultado</string>
+<string name="see_score">Ver Score</string>
+<string name="minutes"> minutos</string>
+<string name="defeated_in">Derrotado em</string>
+<string name="victory_in">Vitoria em</string>
+<string name="congratulations">Parabéns</string>
+<string name="was_not_this_time">Não foi dessa vez</string>
+<string name="hits">Acertos</string>
+
+</resources>

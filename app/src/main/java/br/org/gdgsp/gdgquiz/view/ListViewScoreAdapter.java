@@ -1,4 +1,4 @@
-package gdgquiz.gdgsp.org.br.view;
+package br.org.gdgsp.gdgquiz.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import gdgquiz.gdgsp.org.br.domain.Score;
+import br.org.gdgsp.gdgquiz.domain.Score;
 
 /**
  * Created by pveronezi on 27/07/14.
@@ -51,9 +51,9 @@ public class ListViewScoreAdapter extends BaseAdapter {
             holder = new ViewHolder();
 
             holder.imageView = (ImageView) view.findViewById(R.id.imageView);
-            holder.nome = (TextView) view.findViewById(R.id.textViewNome);
-            holder.vitoria = (TextView) view.findViewById(R.id.textViewDescricao);
-            holder.tempo = (TextView) view.findViewById(R.id.textViewMinutos);
+            holder.name = (TextView) view.findViewById(R.id.textViewName);
+            holder.victory = (TextView) view.findViewById(R.id.textViewDescription);
+            holder.temp = (TextView) view.findViewById(R.id.textViewMinutes);
 
             view.setTag(holder);
         } else {
@@ -65,17 +65,17 @@ public class ListViewScoreAdapter extends BaseAdapter {
         // TODO verificar a imagem
         // holder.imageView.setImageBitmap(tempScore.getImagem());
 
-        holder.nome.setText(tempScore.getNome());
-        holder.tempo.setText(tempScore.getTempo() + " minutos");
-        holder.vitoria.setText(tempScore.isVitoria() ? "Vitoria em" : "Derrotado em");
+        holder.name.setText(tempScore.getName());
+        holder.temp.setText(tempScore.getTime() + context.getString(R.string.minutes));
+        holder.victory.setText(tempScore.isVictory() ? context.getString(R.string.victory_in) + ": " : context.getString(R.string.defeated_in) + ": ");
 
         return view;
     }
 
     private class ViewHolder{
         ImageView imageView;
-        TextView nome;
-        TextView vitoria;
-        TextView tempo;
+        TextView name;
+        TextView victory;
+        TextView temp;
     }
 }

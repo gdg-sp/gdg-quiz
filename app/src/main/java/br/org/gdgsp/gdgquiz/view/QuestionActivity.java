@@ -1,4 +1,4 @@
-package gdgquiz.gdgsp.org.br.view;
+package br.org.gdgsp.gdgquiz.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,9 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import gdgquiz.gdgsp.org.br.bo.GameBO;
-import gdgquiz.gdgsp.org.br.domain.Question;
-import gdgquiz.gdgsp.org.br.domain.Answer;
+import br.org.gdgsp.gdgquiz.bo.GameBO;
+import br.org.gdgsp.gdgquiz.domain.Question;
 
 public class QuestionActivity extends Activity {
     private static final String TAG = QuestionActivity.class.getSimpleName();
@@ -28,6 +27,7 @@ public class QuestionActivity extends Activity {
     private RadioButton radioResposta3;
     private RadioButton radioResposta4;
     private GameBO gameBO;
+    private int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class QuestionActivity extends Activity {
         Log.d(TAG, "Questão: " + question.getId());
 
         buttonResponder = (Button) findViewById(R.id.buttonResponder);
-        descricao = (TextView) findViewById(R.id.textViewDescricao);
+        descricao = (TextView) findViewById(R.id.textViewDescription);
 
         radioGroupRespostas = (RadioGroup) findViewById(R.id.radioGroupResposta);
         radioResposta1 = (RadioButton) findViewById(R.id.radioButtonResposta1);
@@ -52,28 +52,33 @@ public class QuestionActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "buttonResponder.setOnClickListener - START");
-                String resultado = getString(R.string.resposta_errada);
-                if(gameBO.validateAnswer(question, radioGroupRespostas.getCheckedRadioButtonId())){
-                    resultado = getString(R.string.resposta_certa);
+
+                if (gameBO.validateAnswer(question, radioGroupRespostas.getCheckedRadioButtonId())) {
                     question = gameBO.getNextQuestion();
-                    if(question != null){
+                    count++;
+                    if (question != null) {
+                        Toast.makeText(getBaseContext(), getString(R.string.right_answer), Toast.LENGTH_SHORT).show();
                         populateQuestion(question);
 
-                    }else{
-                        Intent resultIntent = new Intent(getBaseContext(), ResultActivity.class);
-                        resultIntent.putExtra("result", true);
-                        startActivity(resultIntent);
+                    } else {
+                        resultGame(true, count);
                     }
-                }else{
-                    Intent resultIntent = new Intent(getBaseContext(), ResultActivity.class);
-                    resultIntent.putExtra("result", false);
-                    startActivity(resultIntent);
+                } else {
+                    resultGame(false, count);
                 }
 
-                Toast.makeText(getBaseContext(), resultado, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "buttonResponder.setOnClickListener - FINISH");
             }
         });
+    }
+
+    private void resultGame(boolean victory, int pCount) {
+        Intent resultIntent = new Intent(getBaseContext(), ResultActivity.class);
+        resultIntent.putExtra(ResultActivity.VICTORY, victory);
+        resultIntent.putExtra(ResultActivity.COUNT, pCount);
+        resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(resultIntent);
+        finish();
     }
 
     private void populateQuestion(Question q){
@@ -92,7 +97,6 @@ public class QuestionActivity extends Activity {
         radioResposta4.setId((int) q.getAnswers().get(3).getId());
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

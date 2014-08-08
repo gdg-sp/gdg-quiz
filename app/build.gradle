@@ -8,7 +8,7 @@ android {
         abortOnError false
     }
     defaultConfig {
-        applicationId "gdgquiz.gdgsp.org.br.gdgquiz"
+        applicationId "br.org.gdgsp.gdgquiz"
         minSdkVersion 14
         targetSdkVersion 20
         versionCode 1

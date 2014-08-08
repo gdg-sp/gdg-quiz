@@ -10,6 +10,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/textViewResult" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textViewCount" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -46,10 +52,11 @@
         android:id="@+id/imageResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/buttonHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ver_score"/>
+        android:text="@string/see_score"/>
 
 </LinearLayout>

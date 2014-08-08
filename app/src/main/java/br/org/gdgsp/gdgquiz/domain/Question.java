@@ -1,13 +1,26 @@
-package gdgquiz.gdgsp.org.br.domain;
+package br.org.gdgsp.gdgquiz.domain;
 
 import java.util.List;
 
 /**
+ * Representa uma questão
+ *
  * Created by pveronezi on 29/07/14.
  */
 public class Question {
+    /**
+     * Id da questão
+     */
     private long id;
+
+    /**
+     * A questão propriamente dita.
+     */
     private String description;
+
+    /**
+     * As possiveis respostas
+     */
     private List<Answer> answers;
 
     public long getId() {

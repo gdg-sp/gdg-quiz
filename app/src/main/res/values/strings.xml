@@ -2,18 +2,21 @@
 <resources>
 
     <string name="app_name">GDG Quiz</string>
-    <string name="home_message">Welcome</string>
-    <string name="btn_jogar">Jogar</string>
-    <string name="title_activity_pergunta">PerguntaActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="home_message">Wellcome</string>
+    <string name="btn_play">Play</string>
+    <string name="title_activity_pergunta">Questions</string>
+    <string name="action_settings">settings</string>
     <string name="score">SCORE</string>
-    <string name="responder">Responder</string>
-    <string name="placeholder_aaa">AAA</string>
-    <string name="resposta_errada">Resposta errada</string>
-    <string name="resposta_certa">Resposta Certa</string>
-    <string name="title_activity_result">ResultActivity</string>
-    <string name="ver_score">Ver Score</string>
-    <string name="teste">result</string>
+    <string name="answer">Answer</string>
+    <string name="wrong_answer">Wrong answer</string>
+    <string name="right_answer">Right answer</string>
+    <string name="title_activity_result">Result</string>
+    <string name="see_score">See Score</string>
+    <string name="minutes">minutes</string>
+    <string name="defeated_in">Defeated in</string>
+    <string name="victory_in">Victory in</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="was_not_this_time">Wos not this time</string>
+    <string name="hits">hits</string>
 
 </resources>

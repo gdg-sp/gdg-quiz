@@ -1,4 +1,4 @@
-package gdgquiz.gdgsp.org.br.bo;
+package br.org.gdgsp.gdgquiz.bo;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,20 +6,36 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import gdgquiz.gdgsp.org.br.domain.Answer;
-import gdgquiz.gdgsp.org.br.domain.Question;
+import br.org.gdgsp.gdgquiz.domain.Answer;
+import br.org.gdgsp.gdgquiz.domain.Question;
 
 /**
+ * Regras de negócio relacionado as questões do quiz como CRUD, listagem e etc
+ *
  * Created by pveronezi on 31/07/14.
  */
 public class QuestionBO {
     private static final String TAG = QuestionBO.class.getSimpleName();
+
+    /**
+     * Contexto da aplicação.
+     */
     private Context context;
 
+    /**
+     * Construtor que recebe um contexto da aplicação
+     *
+     * @param context
+     */
     public QuestionBO(Context context) {
         this.context = context;
     }
 
+    /**
+     * Lista todas as questões do sistema.
+     *
+     * @return A lista de questões do quiz.
+     */
     public List<Question> getAllQuestao(){
         Log.d(TAG, "List<Question> getAllQuestao - START");
         // TODO para testes, depois implementar busca no banco

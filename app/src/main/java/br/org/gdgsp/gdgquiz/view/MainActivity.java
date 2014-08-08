@@ -1,4 +1,4 @@
-package gdgquiz.gdgsp.org.br.view;
+package br.org.gdgsp.gdgquiz.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import gdgquiz.gdgsp.org.br.bo.ScoreBO;
-import gdgquiz.gdgsp.org.br.domain.Score;
+import br.org.gdgsp.gdgquiz.bo.ScoreBO;
+import br.org.gdgsp.gdgquiz.domain.Score;
 
 
 public class MainActivity extends Activity {
@@ -50,8 +50,12 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void showMessage(String message){
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-        Log.w(TAG, message);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        scoreList = scoreBO.getAllScore();
+        listViewScoreAdapter.notifyDataSetChanged();
+
     }
+
 }
